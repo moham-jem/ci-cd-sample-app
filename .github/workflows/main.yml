@@ -6,8 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install dependencies
       run: npx yarn
     - name: Build
+      working-directory: ./ci-cd-sample-app
       run: npx yarn build
