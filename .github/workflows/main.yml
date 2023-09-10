@@ -16,6 +16,8 @@ jobs:
     - name: Build
       working-directory: ./ci-cd-sample-app
       run: npx yarn build
+      env:
+        SECRET_ONE: "${{ secrets.secret_of_the_ages }}"
 
   test:
     runs-on: ubuntu-latest
