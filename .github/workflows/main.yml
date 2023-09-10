@@ -17,6 +17,19 @@ jobs:
       working-directory: ./ci-cd-sample-app
       run: npx yarn build
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: yarn    
+    - uses: actions/download-artifact@v2
+      with:
+        name: assets
+        path: dist
+    - name: Run Lint Checks
+      run: yarn style
+  
   deploy:
     needs: build
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
