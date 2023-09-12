@@ -15,7 +15,7 @@ jobs:
       run: npx yarn
     - name: Build
       working-directory: ./ci-cd-sample-app
-      run: npx yarn build
+      run: npx yarn
       env:
         SECRET_ONE: "${{ secrets.secret_of_the_ages }}"
 
