@@ -5,16 +5,12 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ci-cd-sample-app
     
     steps:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: npx yarn
     - name: Build
-      working-directory: ./ci-cd-sample-app
       run: npx yarn
       env:
         SECRET_ONE: "${{ secrets.secret_of_the_ages }}"
